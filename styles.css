@@ -166,6 +166,50 @@ a { color: inherit; text-decoration: none; }
 .work-card strong { display: block; font-size: 1.02rem; }
 .work-card figcaption span { color: var(--muted); font-size: .87rem; }
 
+/* ---------- Antes / Después ---------- */
+.ba-slider {
+  position: relative; max-width: 860px; margin: 0 auto; border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 16 / 9; user-select: none;
+  touch-action: pan-y;
+}
+.ba-slider svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ba-after, .ba-before { position: absolute; inset: 0; }
+.ba-before { clip-path: inset(0 50% 0 0); }
+.ba-tag {
+  position: absolute; top: 14px; padding: 6px 14px; border-radius: 999px;
+  font-weight: 800; font-size: .8rem; letter-spacing: .06em; z-index: 2;
+}
+.ba-tag-before { left: 14px; background: rgba(28,25,23,.75); color: var(--white); }
+.ba-tag-after { right: 14px; background: var(--wa); color: var(--white); }
+.ba-handle {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: var(--white);
+  z-index: 3; pointer-events: none; transform: translateX(-50%);
+}
+.ba-handle span {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 46px; height: 46px; border-radius: 50%; background: var(--white); color: var(--ink);
+  display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 800;
+  box-shadow: var(--shadow-lg);
+}
+.ba-range {
+  position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 4;
+  margin: 0; -webkit-appearance: none; appearance: none;
+}
+.ba-note { text-align: center; margin-top: 22px; color: var(--muted); }
+.ba-note a { color: var(--wa-dark); font-weight: 700; }
+
+/* ---------- Precios ---------- */
+.price-table { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.price-row {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 17px 24px; border-bottom: 1px solid var(--line); flex-wrap: wrap;
+}
+.price-row:last-child { border-bottom: none; }
+.price-row:nth-child(odd) { background: var(--paper); }
+.price-name { font-weight: 600; }
+.price-value { font-weight: 800; color: var(--amber-dark); white-space: nowrap; }
+.price-note { text-align: center; color: var(--muted); font-size: .88rem; margin-top: 16px; }
+
 /* ---------- Por qué ---------- */
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .why-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); padding: 26px; }

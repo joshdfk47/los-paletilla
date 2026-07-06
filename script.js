@@ -40,6 +40,19 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 counters.forEach(c => statsObserver.observe(c));
 
+// Comparador antes/después
+const baRange = document.getElementById('baRange');
+const baBefore = document.getElementById('baBefore');
+const baHandle = document.getElementById('baHandle');
+if (baRange) {
+  const setBA = (v) => {
+    baBefore.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+    baHandle.style.left = v + '%';
+  };
+  baRange.addEventListener('input', () => setBA(baRange.value));
+  setBA(50);
+}
+
 // Formulario → abre WhatsApp con el mensaje ya redactado
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();
